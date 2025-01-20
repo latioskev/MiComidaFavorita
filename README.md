@@ -56,7 +56,12 @@ git clone https://github.com/latioskev/MiComidaFavorita.git
 - Crear Cloud Firestore
 - Registrar la aplicación web
 - Copiar configuración de Firebase
-### 3. Iniciar el proyecto
+### 4. Iniciar el proyecto
 ```bash
 - npx expo start
 ```
+### 5. Imagenes del proyecto
+![image](https://github.com/user-attachments/assets/c1af0fac-551d-4f40-bec5-75b3694ad1e7)
+![image](https://github.com/user-attachments/assets/6e2b959e-5b0e-4d24-9ba6-4105ac350ac7)
+![image](https://github.com/user-attachments/assets/36c6ba1a-7486-4ad5-9751-3a372162a237)
+
