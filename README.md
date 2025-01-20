@@ -30,12 +30,24 @@ Antes de iniciar, asegúrate de tener las siguientes herramientas instaladas:
 git clone https://github.com/latioskev/MiComidaFavorita.git
 ```
 ### 2. Instalar dependencias
+```bash
 -  npm install
+```
+```bash
 -  npm install @react-navigation/native @react-navigation/native-stack
+```
+```bash
 -  npm install firebase
+```
+```bash
 -  npm install react-native-elements
+```
+```bash
 -  npm install expo-constants
+```
+```bash
 -  npm install react-native-safe-area-contex
+```
 ### 3. Configurar Firebase
 - Ir a Firebase Console (
  https://console.firebase.google.com/)
@@ -45,4 +57,6 @@ git clone https://github.com/latioskev/MiComidaFavorita.git
 - Registrar la aplicación web
 - Copiar configuración de Firebase
 ### 3. Iniciar el proyecto
+```bash
 - npx expo start
+```
