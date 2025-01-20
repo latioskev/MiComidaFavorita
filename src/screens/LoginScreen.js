@@ -8,7 +8,7 @@ export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [isLoading, setIsLoading] = useState(false); // Estado para el indicador de carga
+  const [isLoading, setIsLoading] = useState(false);
 
   const validateLoginForm = () => {
     const isEmailValid = /\S+@\S+\.\S+/.test(email);
@@ -17,14 +17,14 @@ export default function LoginScreen({ navigation }) {
   };
 
   const handleLogin = async () => {
-    setIsLoading(true); // Mostrar indicador de carga
+    setIsLoading(true); 
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       navigation.replace('Home');
     } catch (error) {
       setError('Error al iniciar sesión: ' + error.message);
     } finally {
-      setIsLoading(false); // Ocultar indicador de carga
+      setIsLoading(false);
     }
   };
 
@@ -36,7 +36,7 @@ export default function LoginScreen({ navigation }) {
         value={email}
         onChangeText={(text) => {
           setEmail(text);
-          setError(null); // Limpiar errores al modificar el campo
+          setError(null); 
         }}
         autoCapitalize="none"
         errorMessage={!/\S+@\S+\.\S+/.test(email) && email ? 'Email no válido' : ''}
@@ -46,19 +46,19 @@ export default function LoginScreen({ navigation }) {
         value={password}
         onChangeText={(text) => {
           setPassword(text);
-          setError(null); // Limpiar errores al modificar el campo
+          setError(null);
         }}
         secureTextEntry
         errorMessage={password === '' ? 'La contraseña es requerida' : ''}
       />
       {error ? <Text style={styles.error}>{error}</Text> : null}
-      {isLoading ? ( // Mostrar indicador de carga
+      {isLoading ? (
         <ActivityIndicator size="large" color="#0000ff" />
       ) : (
         <Button
           title="Iniciar Sesión"
           onPress={handleLogin}
-          disabled={!validateLoginForm() || isLoading} // Deshabilitar botón si no es válido o está cargando
+          disabled={!validateLoginForm() || isLoading}
           containerStyle={styles.button}
         />
       )}
@@ -66,7 +66,7 @@ export default function LoginScreen({ navigation }) {
         title="Registrarse"
         type="outline"
         onPress={() => navigation.navigate('Register')}
-        disabled={isLoading} // Deshabilitar botón mientras está cargando
+        disabled={isLoading}
         containerStyle={styles.button}
       />
     </View>

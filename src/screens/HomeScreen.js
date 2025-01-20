@@ -31,14 +31,14 @@ export default function HomeScreen({ navigation }) {
     comidaFavorita: '',
   });
   const [errors, setErrors] = useState({});
-  const [isLoading, setIsLoading] = useState(false); // Estado para el indicador de carga
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     loadProfile();
   }, []);
 
   const loadProfile = async () => {
-    setIsLoading(true); // Mostrar indicador de carga
+    setIsLoading(true);
     try {
       const docRef = doc(db, 'usuarios', auth.currentUser.uid);
       const docSnap = await getDoc(docRef);
@@ -49,7 +49,7 @@ export default function HomeScreen({ navigation }) {
       console.error('Error al cargar perfil:', error);
       setErrors({ general: 'Error al cargar perfil: ' + error.message });
     } finally {
-      setIsLoading(false); // Ocultar indicador de carga
+      setIsLoading(false); 
     }
   };
 
@@ -60,7 +60,7 @@ export default function HomeScreen({ navigation }) {
       return;
     }
 
-    setIsLoading(true); // Mostrar indicador de carga
+    setIsLoading(true);
     try {
       await setDoc(doc(db, 'usuarios', auth.currentUser.uid), profile);
       alert('Perfil actualizado exitosamente');
@@ -68,12 +68,12 @@ export default function HomeScreen({ navigation }) {
       console.error('Error al actualizar perfil:', error);
       setErrors({ general: 'Error al actualizar perfil: ' + error.message });
     } finally {
-      setIsLoading(false); // Ocultar indicador de carga
+      setIsLoading(false);
     }
   };
 
   const handleSignOut = async () => {
-    setIsLoading(true); // Mostrar indicador de carga
+    setIsLoading(true);
     try {
       await signOut(auth);
       navigation.replace('Login');
@@ -81,7 +81,7 @@ export default function HomeScreen({ navigation }) {
       console.error('Error al cerrar sesión:', error);
       setErrors({ general: 'Error al cerrar sesión: ' + error.message });
     } finally {
-      setIsLoading(false); // Ocultar indicador de carga
+      setIsLoading(false);
     }
   };
 
@@ -97,7 +97,7 @@ export default function HomeScreen({ navigation }) {
           setErrors((prev) => ({ ...prev, nombre: null }));
         }}
         errorMessage={errors.nombre}
-        editable={!isLoading} // Deshabilitar input mientras carga
+        editable={!isLoading}
       />
       <Input
         placeholder="Apellido"
@@ -107,7 +107,7 @@ export default function HomeScreen({ navigation }) {
           setErrors((prev) => ({ ...prev, apellido: null }));
         }}
         errorMessage={errors.apellido}
-        editable={!isLoading} // Deshabilitar input mientras carga
+        editable={!isLoading}
       />
       <Input
         placeholder="Comida Favorita"
@@ -117,7 +117,7 @@ export default function HomeScreen({ navigation }) {
           setErrors((prev) => ({ ...prev, comidaFavorita: null }));
         }}
         errorMessage={errors.comidaFavorita}
-        editable={!isLoading} // Deshabilitar input mientras carga
+        editable={!isLoading} 
       />
       {isLoading ? (
         <ActivityIndicator size="large" color="#0000ff" />
@@ -127,14 +127,14 @@ export default function HomeScreen({ navigation }) {
             title="Actualizar Perfil"
             onPress={handleUpdate}
             containerStyle={styles.button}
-            disabled={isLoading} // Deshabilitar botón mientras carga
+            disabled={isLoading} 
           />
           <Button
             title="Cerrar Sesión"
             type="outline"
             onPress={handleSignOut}
             containerStyle={styles.button}
-            disabled={isLoading} // Deshabilitar botón mientras carga
+            disabled={isLoading}
           />
         </>
       )}

@@ -38,15 +38,15 @@ export default function RegisterScreen({ navigation }) {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState({});
-  const [isLoading, setIsLoading] = useState(false); // Estado para el indicador de carga
+  const [isLoading, setIsLoading] = useState(false); 
 
   const handleRegister = async () => {
-    setIsLoading(true); // Mostrar indicador de carga
+    setIsLoading(true);
 
     const formErrors = validateForm({ email, password, confirmPassword });
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
-      setIsLoading(false); // Ocultar indicador de carga si hay errores
+      setIsLoading(false); 
       return;
     }
 
@@ -56,7 +56,7 @@ export default function RegisterScreen({ navigation }) {
     } catch (error) {
       setErrors({ general: 'Error al registrarse: ' + error.message });
     } finally {
-      setIsLoading(false); // Ocultar indicador de carga al finalizar
+      setIsLoading(false);
     }
   };
 
@@ -99,13 +99,13 @@ export default function RegisterScreen({ navigation }) {
       
       {errors.general && <Text style={styles.error}>{errors.general}</Text>}
       
-      {isLoading ? ( // Mostrar indicador de carga
+      {isLoading ? (
         <ActivityIndicator size="large" color="#0000ff" />
       ) : (
         <Button
           title="Registrarse"
           onPress={handleRegister}
-          disabled={isLoading} // Deshabilitar botón durante la carga
+          disabled={isLoading}
           containerStyle={styles.button}
         />
       )}
@@ -114,7 +114,7 @@ export default function RegisterScreen({ navigation }) {
         title="Volver al Login"
         type="outline"
         onPress={() => navigation.navigate('Login')}
-        disabled={isLoading} // Deshabilitar botón durante la carga
+        disabled={isLoading}
         containerStyle={styles.button}
       />
     </View>
