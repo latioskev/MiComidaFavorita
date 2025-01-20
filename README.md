@@ -27,8 +27,7 @@ Antes de iniciar, asegúrate de tener las siguientes herramientas instaladas:
 ## Instalación y configuración
 ### 1. Clonar el repositorio
 ```bash
-git clone https://github.com/latioskev/mi-comida-favorita.git
-cd mi-comida-favorita
+git clone https://github.com/latioskev/MiComidaFavorita.git
 ```
 ### 2. Instalar dependencias
 -  npm install
